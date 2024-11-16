@@ -1,0 +1,86 @@
+ID,SERVICE_NAME,SERVICE_URL
+1,"SiteIncharge Register",companyRegister
+2,"SiteIncharge Login",companyLogin
+3,"VerifyOTP  Request",verifyOTPForRegister
+4,"Forgot Password ",forgotPassword
+5,"Reset Password",resetPassword
+7,"Add Vendor",addVendor
+8,"Vender Details",showVendorDetails
+9,"Update Vendor",updateVendor
+10,"Active Vendor",statusVendor
+11,"Add User",addUser
+12,"Update Vendor",updateUser
+13,"User Details",showUser
+14,"Active user",statusUser
+15,"Add Site",addSite
+16,"Show Site",showSite
+17,"show site list",showSiteList
+18,InsertMessage,insertMessage
+19,"Show Message Details",showMessage
+20,"Add Stock Details",addStock
+21,"Show Stock Details",showStock
+22,"Add Labour",addLabour
+23,"Show Labour Details",showLabour
+24,"Add Machinery",addMachineryDetails
+25,"Insert attendance of eng and super",submitDpr
+26,"Show Machinery Details",showMachineryDetails
+27,"Add Work Done Details",addWorkDetails
+28,"Show Work Done Details",showWorkDetails
+29,"Add Stock Consumed",addStockConsumed
+30,showStockConsumed,showStockConsumed
+31,"Show DPR",showDpr
+32,"update Labour Details",updateLabour
+33,"Update Stock Consumed",updateStockConsume
+34,"Last DPR inserted date",lastDPRInsertedDate
+35,Expense,expense
+36,"Show DPR List",showDprList
+37,"Add Labour for APP",addLabourApp
+38,"Show DPR for APP",showDprApp
+39,"Update Machinery Details",updateMachinery
+40,"Update Work Details",updateWorkDone
+41,"Upload Image",uploadImage
+42,"Update site Details",updateSiteDetails
+43,"Show Site Images",viewImages
+44,"Stock Item Transfer",transferItem
+45,"Stock Item Detail",stockItemDetail
+46,"Add Existing Stock",addExistingStock
+47,Profile,profile
+48,"Transfer All Stock Items",transferAllItems
+49,"Category Wise Image For Add",showImagesForAdd
+50,"Specific Images",specificImages
+51,"Upload profile image",uploadProfileImage
+52,"View DPR",viewDPR
+53,"Show Stock For DPR",showStockForDPR
+54,"Expense With Petty Cash",expenseWithPettyCash
+55,"show catogory site images",showCategorywiseSiteImages
+56,"list of stock transfer in notification",listOfStockTransfer
+57,"Add Petty Cash",addPettyCash
+58,"Petty Cash Balance",pettyCashBalance
+59,"update profile",updateProfile
+60,"DashBoard Details",dashboardDetails
+61,"Current DPR Details",getCurrentDateDPRDetails
+62,"Stock transfer",transferStock
+63,"Update Stock Detail",updateStock
+64,"Menus With Actions",getMenusWithActions
+65,"get Bank Detail",getBankDetails
+66,"Resend OTP",resendOTP
+67,"Save Billing Detail And Add Month ",addBillingDetailsWithMonths
+68,"Month Details",monthsDetails
+69,"Add Months",addMonths
+70,"Contact Us",contactUs
+71,"Get Previous Labour Details",getPreviousLabourDetails
+72,"remove Labour Details",removeLabour
+73,"Change Password",changePassword
+74,"get Pincode Details",getPincodeDetails
+75,"View Category wise siteImages new",viewCategorywiseSiteImages
+76,"Delete Stock ",deleteStock
+77,"Upload Company Logo",uploadLogo
+78,"Update Company Details",updateCompanyDetails
+79,"Show User's Assigned Sites",showUserSites
+80,"Remove Stock",removeStock
+81,"Remove User From Assigned Site",removeUserFromSite
+82,"Items With Units",getItemsWithUnits
+83,"Add New Item",addItem
+84,"Stock Item List For PDF AND EXCEL",stockItemDetailsForPdf
+85,"Stock List By Challan Number",stockListByChallan
+86,"Get Challan Number List",getChallanNumberList

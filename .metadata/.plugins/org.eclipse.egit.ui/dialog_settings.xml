@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+		<item value="bitbucket.org"/>
+		<item value="gitlab.com"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://gitlab.com/pinnotechs/farm-backend.git"/>
+		<item value="https://gitlab.com/cu-sales/salescore.git"/>
+		<item value="https://gitlab.com/cu-sales/sales.git"/>
+	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="madhu&lt;madhu.manchala@comunus.in&gt;"/>
+		<item value="madhu &lt;madhu.manchala@comunus.in&gt;"/>
+		<item value="madhu &lt;madhu.manchla@comunus.in&gt;"/>
+		<item value=" madhu &lt;madhu.manchla@comunus.in&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="madhu&lt;madhu.manchala@comunus.in&gt;"/>
+		<item value="madhu &lt;madhu.manchala@comunus.in&gt;"/>
+		<item value="madhu &lt;madhu.manchla@comunus.in&gt;"/>
+		<item value=" madhu &lt;madhu.manchla@comunus.in&gt;"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.fetch.FetchResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="534"/>
+		<item key="DIALOG_Y_ORIGIN" value="217"/>
+		<item key="DIALOG_WIDTH" value="875"/>
+		<item key="DIALOG_HEIGHT" value="538"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="534"/>
+		<item key="DIALOG_Y_ORIGIN" value="240"/>
+		<item key="DIALOG_WIDTH" value="875"/>
+		<item key="DIALOG_HEIGHT" value="503"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="746"/>
+		<item key="DIALOG_Y_ORIGIN" value="391"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="sortItemState" value="true"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\Users\comunus186\gits\salescore\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\comunus186\gits\sales\.git">
+			<item value="false"/>
+			<item value="Karthik8459 &lt;karthik.devasani@comunus.in&gt;"/>
+			<item value="target form changes"/>
+			<item value="Karthik8459 &lt;karthik.devasani@comunus.in&gt;"/>
+			<item value="84fd1854b56e09d053b0fe24a1f79c872da7ab6b"/>
+			<item value="0"/>
+			<item value="false"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

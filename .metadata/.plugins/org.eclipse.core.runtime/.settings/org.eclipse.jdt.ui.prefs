@@ -1,0 +1,12 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.comunus.salesCore.model.DashboardDetails"><rhs name\="com.comunus.salesCore.model.DashboardDetails"/></lhs><lhs name\="com.comunus.salesCore.model.ForgotPasswordRequest"><rhs name\="com.comunus.salesCore.model.ForgotPasswordRequest"/></lhs><lhs name\="com.comunus.sales.controller.FinancialYearUtil"><rhs name\="com.comunus.sales.controller.FinancialYearUtil"/></lhs><lhs name\="java.lang.IllegalArgumentException"><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.lang.RuntimeException"><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.lang.Exception"><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.lang.Throwable"><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.lang.NumberFormatException"><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.lang.Number"><rhs name\="java.math.BigDecimal"/></lhs><lhs name\="java.math.BigDecimal"><rhs name\="java.math.BigDecimal"/></lhs><lhs name\="com.comunus.salesCore.model.ContactForm"><rhs name\="com.comunus.salesCore.model.ContactForm"/></lhs><lhs name\="com.comunus.salesCore.model.EmailMaster"><rhs name\="com.comunus.salesCore.model.EmailMaster"/></lhs><lhs name\="com.comunus.sales.config.WebClientConfig"><rhs name\="com.comunus.sales.config.WebClientConfig"/></lhs></history>
+content_assist_number_of_computers=19
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=22
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

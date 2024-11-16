@@ -1,0 +1,18 @@
+spring.application.name=sales
+spring.mvc.view.prefix= WEB-INF/views/
+spring.mvc.view.suffix= .jsp
+jwt.secret=fF7PvoUzL4l7qnIf8bZCwKgNBaYo47mMfF7PvoUzL4l7qnIf8bZCwKgNBaYo47mMfF7PvoUzL4l7qnIf8bZCwKgNBaYo47mMfF7PvoUzL4l7qnIf8bZCwKgNBaYo47mM
+spring.main.allow-bean-definition-overriding=true
+
+#spring.datasource.jndi-name=java:comp/env/jdbc/sales_web
+
+spring.datasource.url=jdbc:mysql://52.66.211.242:3306/sales_web?allowPublicKeyRetrieval=true&useSSL=false
+spring.datasource.username=cusales
+spring.datasource.password=ComUnus@2024
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+#spring.datasource.url=jdbc:mysql://127.0.0.1:3306/sales_web?useSSL=false
+#spring.datasource.username=root
+#spring.datasource.password=root
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+

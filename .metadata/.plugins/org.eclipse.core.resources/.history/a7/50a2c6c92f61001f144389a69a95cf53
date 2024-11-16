@@ -1,0 +1,844 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<!DOCTYPE html>
+
+<html lang="en" class="light-style ">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>Sales Management</title>
+<meta name="description" content="" />
+<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+<!-- Icons.  icon fonts -->
+<link rel="stylesheet" href="fonts/boxicons.css" />
+<!-- Core CSS -->
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/select2.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+	<div id="loader">
+		<img src="img/loading.gif">
+	</div>
+	<!--======= Header ======= -->
+	<%@include file="header.jsp"%>
+	<!-- End Header -->
+
+	<!-- Layout wrapper -->
+	<div class="layout-wrapper">
+		<div class="layout-container">
+			<!-- Layout container -->
+			<div class="layout-page">
+				<!-- Content wrapper -->
+				<div class="content-wrapper">
+					<!-- Content -->
+					<div class="container-xxll flex-grow-1 container-p-y target">
+						<div class="row">
+							<!-- Basic Layout -->
+							<div class="col-xxl">
+								<div class="card mb-4">
+									<div
+										class="card-header d-flex align-items-center justify-content-between mb-0">
+										<h5 class="mb-0">Annual Country Target </h5>
+										
+										   
+
+									</div>
+									<div class="card-body mt-4" style="min-height:430px">
+										<form  id="targetDetailsForm" name="targetDetailsForm"
+											 method="post" >
+											<div class="row">
+												<div class="col-lg-3 col-md-6 col-sm-6">
+													<div class="form-group">
+														<label class="form-label" for="financialYear">Financial
+															Year </label> <select class="form-control form-select select2"
+															name="financialYear" id="financialYear">
+															<option selected >Select</option>
+															<option>2024-25</option>
+															<option>2025-26</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-lg-3 col-md-6 col-sm-6">
+													<div class="form-group">
+													<%--  <input type="hidden" id="otpId" name="totalTargetId"
+															value="${userId}"> --%>
+														<label class="form-label" for="totaltarget">Total
+															Target
+															 </label>
+														<div class="input-group">
+															<span class="input-group-text"><i
+																class="fa fa-rupee"></i></span> <input type="number"
+																class="form-control" id="totaltarget" name="totalTargetValue"
+																placeholder="Amount" />
+														</div>
+														  <span id="remainingTotalTarget">Remaining Total Target: 0</span>
+														
+													</div>
+													
+													
+												</div>
+												
+													
+												<div class="col-lg-3 col-md-6 col-sm-6">
+												    <button type="button" id="setTargetButton" class="btn btn-primary mt-4"> Set</button>
+													
+												</div>
+												
+												
+												<div class="row">
+												<div class="col-md-12 col-sm-12 p-2 mt-4">
+												  <div id="zoneTargets" style="display: none;" >
+												  <div class="zoneTargets">
+                                                <div class="row">
+                                                
+                                               <%--  <div class="col-lg-4 col-md-6 col-sm-6">
+													<div class="form-group">
+													  <input type="hidden" id="otpId" name="countryHeadId"
+															value="${userId}">
+														<label class="form-label" for="countryHead">My Target
+															 </label>
+														<div class="input-group">
+															<span class="input-group-text"><i
+																class="fa fa-rupee"></i></span> <input type="number"
+																class="form-control" id="countryHeadValue"  name="countryHeadValue"
+																placeholder="Amount" /> <span
+																class="input-group-text fs-6 fs-tiny2">Lacs</span>
+														</div>
+													 <!--  <span id="remainingCountryHeadTarget">Remaining My Target: 0</span>  -->
+														
+													</div>
+												</div> --%>
+												
+                                                   <%--  <c:forEach var="item" items="${countryHead}">
+                                                    
+                                                        <c:if test="${item.role == 'ZH'}"> --%>
+                                                          <c:forEach var="zoneList" items="${zoneList}">
+                                                         
+                                                         <%--  <c:if test="${item.zone eq zoneList.id}"> --%>
+                                                          <input type="hidden" id="otpId" name="ZoneTargetId"
+															value="${item.zone}">
+                                                          
+                                                            <div class="col-md-3 col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="${item.zone}ZoneTarget">${zoneList.zoneName} </label>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-text"><i class="fa fa-rupee"></i></span>
+                                                                        <input type="number" class="form-control" id="ZoneTargetValue_${zoneList.id}" name="ZoneTargetValue" placeholder="Amount" />
+                                                                       
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                 <%--            </c:if> --%>
+                                                            </c:forEach>
+                                                       <%--  </c:if>
+                                                    </c:forEach>
+ --%>                                              
+												
+												<div class="col-sm-12 d-flex justify-content-center">
+												    <button type="button" id="setIndividualTargetButton" class="btn btn-primary mt-4">Set Individual Target</button>
+													
+												</div>
+												</div>
+												</div>
+												</div>
+												</div>
+												</div>
+												
+												
+												 <div class="row">
+												  <div class="col-md-12 col-sm-12 p-2 mt-4">
+												 
+
+												<div id="zoneHeadTargets" style="display: none;" >
+												
+											<div class="accordion" id="accordionExample">
+    <c:forEach var="zone" items="${zoneList}">
+        <div class="card accordion-item">
+            <h2 class="accordion-header" id="heading_${zone.id}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#collapse_${zone.id}" aria-expanded="false" 
+                        aria-controls="collapse_${zone.id}">
+                    ${zone.zoneName} <span id="remainingTarget${zone.id}">(50) Remaining Total Target: 0</span>
+                </button>
+            </h2>
+            <div id="collapse_${zone.id}" class="accordion-collapse collapse" aria-labelledby="heading_${zone.id}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+    <div class="row">
+        <!-- Zonal Head Section -->
+        <c:set var="zhExists" value="false" />
+        <c:forEach var="item" items="${countryHead}">
+            <c:if test="${item.zone == zone.id && item.role == 'ZH'}">
+                <c:set var="zhExists" value="true" />
+                <input type="hidden" id="otpId" name="zonalHeadId_${zone.id}" value="${item.id}">
+                <label class="form-label" for="zonalHead">${item.firstName}
+                    <small>(Zonal Head)</small> <span id="remainingTarget${item.zone}">Remaining Total Target: 0</span>
+                </label>
+            </c:if>
+        </c:forEach>
+        <c:if test="${zhExists}">
+            <div class="col-md-3 col-sm-4">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-rupee"></i></span>
+                        <input type="number" class="form-control" id="zonalHeadValue_${zone.id}" name="zonalHeadValue_${zone.id}" placeholder="Amount" />
+                    </div>
+                </div>
+            </div>
+        </c:if>
+    </div>
+
+    <div class="row">
+        <!-- BDE Section -->
+        <c:set var="bdeExists" value="false" />
+        <c:forEach var="item" items="${countryHead}">
+            <c:if test="${item.zone == zone.id && item.role == 'BDE'}">
+                <c:set var="bdeExists" value="true" />
+            </c:if>
+        </c:forEach>
+
+        <c:if test="${bdeExists}">
+            <c:forEach var="item" items="${countryHead}">
+                <c:if test="${item.zone == zone.id && item.role == 'BDE'}">
+                    <div class="col-md-3 col-sm-4">
+                        <div class="form-group">
+                            <input type="hidden" id="otpId_${zone.id}" name="bdeId_${zone.id}" value="${item.id}">
+                            <label class="form-label" for="bdeName_${zone.id}_${item.id}">${item.firstName}
+                                <small> (BDE)</small>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa fa-rupee"></i></span>
+                                <input type="number" class="form-control" id="bdeValue_${zone.id}_${item.id}" name="bdeValue_${zone.id}_${item.id}" placeholder="Amount" />
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+        </c:if>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </c:forEach>
+</div>
+
+
+												
+												<div class="zoneTargets">
+                           							 <div class="row">
+											
+												
+												<div class="text-center"> 
+											<button type="button" onclick="saveTargetDetails()" class="btn btn-primary">Submit</button>
+												
+												</div>
+<!-- 												<button type="button" onclick="saveTargetDetails()" class="btn btn-primary float-end">Submit</button>
+ -->											
+ 	                                             </div>
+												</div>
+												
+											</div>
+											</div>
+											</div>
+											</div>
+
+										</form>
+									</div>
+								</div>
+
+							<!-- </div> -->
+							<!-- Basic with Icons -->
+						</div>
+					</div>
+					<!-- / Content -->
+
+					<!-- Footer -->
+					<footer class="content-footer footer bg-footer-theme">
+						<div class="container-xxl   py-2 flex-md-row flex-column">
+							<div class="mb-2 mb-md-0 text-center">Copyright © 2024
+								Comunus All rights reserved.</div>
+						</div>
+					</footer>
+					<!-- / Footer -->
+				</div>
+				<!-- Content wrapper -->
+			</div>
+			<!-- / Layout page -->
+		</div>
+
+	</div>
+	<!-- / Layout wrapper -->
+
+
+	<!-- Core JS -->
+<!-- 	<script src="js/jquery.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/helpers.js"></script>
+	<script src="js/perfect-scrollbar.js"></script>
+	<script src="js/menu.js"></script>
+	<script src="js/select2.js"></script>
+	<script src="js/moment.min.js"></script>
+	<script src="js/main.js"></script> -->
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.select2').select2();
+		});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			setTimeout(function() {
+				//$("#loader").show();  
+				$("#loader").hide();
+			}, 30);
+		});
+	</script>
+	
+	<script type="text/javascript">
+	function saveTargetDetails() {
+	    // Serialize the form data into an array of objects
+	    var formData = $("#targetDetailsForm").serializeArray();
+	    
+	    if (!validateSaveTargetForm()) {
+			return;
+		}
+
+	    // Convert formData to an object
+	    var formObject = {};
+
+	    formData.forEach(function (field) {
+	        if (formObject[field.name]) {
+	            // If the key already exists, convert it to an array (if it isn't already) and add the new value
+	            if (!Array.isArray(formObject[field.name])) {
+	                formObject[field.name] = [formObject[field.name]];
+	            }
+	            formObject[field.name].push(field.value);
+	        } else {
+	            // If the key doesn't exist, simply assign the value
+	            formObject[field.name] = field.value;
+	        }
+	    });
+
+	    console.log('formObject:', formObject);
+
+	    // Send formObject as a request parameter
+	    $.ajax({
+	        url: "saveTarget", // Your server endpoint here
+	        type: "POST",
+	        dataType: "json",
+	        contentType: "application/json; charset=utf-8",
+	        data: JSON.stringify(formObject), // Send formObject as JSON string
+	        success: function (result) {
+	            alert('Details Saved');
+	            location.reload();
+	        },
+	        error: function (error) {
+	            console.error(error);
+	            alert('Failed to Save details');
+	            location.reload();
+	        }
+	    });
+	}
+
+	$(document).ready(function () {
+	    $("#targetDetailsForm").on("submit", function (event) {
+	        event.preventDefault();
+	        saveTargetDetails();
+	    });
+	});
+
+	
+</script>
+	<script>
+    $(document).ready(function () {
+        // Show zone targets and set individual target button on clicking "Set Target" button
+                var isTargetSet = false;
+        $("#setTargetButton").click(function () {
+            if ($('#financialYear').val() === 'Select' || $('#totaltarget').val() === '') {
+                alert('Please select a financial year and enter the total target.');
+            } else {
+                if (!isTargetSet) {
+                    $("#zoneTargets").show();
+                    $("#setIndividualTargetButton").show();
+                    $("#financialYear").prop('readonly', true);
+                    $("#totaltarget").prop('readonly', true);
+                    $("#setTargetButton").text('Edit'); // Change button text to 'Edit Target'
+                    isTargetSet = true;
+                } else {
+                    // Clear and hide the zoneTargets and zoneHeadTargets sections
+                    $("#zoneTargets").hide();
+                    $("#zoneHeadTargets").hide();
+                    $('input[id^="ZoneTargetValue_"]').val('');
+                    $('input[id^="countryHeadValue"]').val('');
+                    $('input[id^="eastZonalHeadValue"]').val('');
+                    $('input[id^="westZonalHeadValue"]').val('');
+                    $('input[id^="northZonalHeadValue"]').val('');
+                    $('input[id^="southZonalHeadValue"]').val('');
+                    $('input[id^="east_bdeValue_"]').val('');
+                    $('input[id^="west_bdeValue_"]').val('');
+                    $('input[id^="north_bdeValue_"]').val('');
+                    $('input[id^="south_bdeValue_"]').val('');
+                    $("#financialYear").prop('readonly', false);
+                    $("#totaltarget").prop('readonly', false);
+                    $("#setTargetButton").text('Set'); // Change button text back to 'Set Target'
+                    isTargetSet = false;
+                }
+            }
+        });
+        
+        var isZoneHeadTargetsShown = false;
+        $("#setIndividualTargetButton").click(function () {
+            if ($('#countryHeadValue').val() === null || $('#countryHeadValue').val() === '') {
+                alert("Please Enter countryHead Target");
+                return false;
+            }
+
+            var BdeValid = true;
+            $('input[id^="ZoneTargetValue_"]').each(function () {
+                if ($(this).val() === null || $(this).val() === '') {
+                    var zoneName = $(this).attr('id').replace('ZoneTargetValue_', '');
+                    alert("Please Enter All Zone Target for all fields");
+                    BdeValid = false;
+                    return false; // Break the loop
+                }
+            });
+
+            if (!BdeValid) {
+                return false;
+            } else {
+            	 // Check remaining total target
+                var remainingTotalTarget = parseFloat($('#remainingTotalTarget').text().replace(/[^\d.-]/g, ''));
+                
+                if (remainingTotalTarget === 0) {
+                    if (!isZoneHeadTargetsShown) {
+                        $("#zoneHeadTargets").show();
+                        isZoneHeadTargetsShown = true;
+                        $("#setIndividualTargetButton").text('Edit Individual Target'); // Change button text to indicate the action
+                    } else {
+                        // Second click logic: Clear and hide zoneHeadTargets
+                        $("#zoneHeadTargets").hide();
+                        $('input[id^="eastZonalHeadValue"]').val('');
+                        $('input[id^="westZonalHeadValue"]').val('');
+                        $('input[id^="northZonalHeadValue"]').val('');
+                        $('input[id^="southZonalHeadValue"]').val('');
+                        $('input[id^="east_bdeValue_"]').val('');
+                        $('input[id^="west_bdeValue_"]').val('');
+                        $('input[id^="north_bdeValue_"]').val('');
+                        $('input[id^="south_bdeValue_"]').val('');
+                        isZoneHeadTargetsShown = false;
+                        $("#setIndividualTargetButton").text('Set Individual Target'); // Change button text back to original
+                    }
+                } else if (remainingTotalTarget > 0) {
+                    alert("Total target is Remaining Please Assign."); 
+                } else {
+                    alert("Total target is negative. Please review and assign correct values."); 
+                }
+
+                return true; 
+            }
+        });
+    });
+</script>
+
+
+<script>
+		function validateSaveTargetForm() {
+			
+			$("#countryHeadValue").on("input", function() {
+				var budget = $(this).val();
+				if (!/^\d*$/.test(budget)) {
+					$(this).val(budget.replace(/[^\d]/g, '')); // Remove non-numeric characters
+				}
+			});
+		
+			if ($('#eastZonalHeadValue').val() === null ||   $('#eastZonalHeadValue').val() === '' ) {
+				alert("Please Enter East ZonalHead Target");
+	            return false;
+			} 
+			var eastBdeValid = true;
+	        $('input[name="east_bdeValue"]').each(function() {
+	            if ($(this).val() === null || $(this).val() === '') {
+	                alert("Please Enter East Zone BDE Target for all fields");
+	                eastBdeValid = false;
+	                return false; // Break the loop
+	            }
+	        });
+
+	        if (!eastBdeValid) return false;
+	       
+		 	if ($('#westZonalHeadValue').val() === null ||   $('#westZonalHeadValue').val() === '' ) {
+				alert("Please Enter West ZonalHead Target");
+				return false;
+			} 
+		 	
+		 	var westBdeValid = true;
+	        $('input[name="west_bdeValue"]').each(function() {
+	            if ($(this).val() === null || $(this).val() === '') {
+	                alert("Please Enter West Zone BDE Target for all fields");
+	                westBdeValid = false;
+	                return false; // Break the loop
+	            }
+	        });
+
+	        if (!westBdeValid) return false;
+		 	
+		 	if ($('#northZonalHeadValue').val() === null ||   $('#northZonalHeadValue').val() === '' ) {
+				alert("Please Enter North ZonalHead Target");
+				return false;
+			} 
+		 	
+		 	var northBdeValid = true;
+	        $('input[name="north_bdeValue"]').each(function() {
+	            if ($(this).val() === null || $(this).val() === '') {
+	                alert("Please Enter North Zone BDE Target for all fields");
+	                northBdeValid = false;
+	                return false; // Break the loop
+	            }
+	        });
+
+	        if (!northBdeValid) return false;
+		 	
+	        if ($('#southZonalHeadValue').val() === null ||   $('#southZonalHeadValue').val() === '' ) {
+				alert("Please Enter South ZonalHead Target");
+				return false;
+			} 
+	        
+	        var southBdeValid = true;
+	        $('input[name="south_bdeValue"]').each(function() {
+	            if ($(this).val() === null || $(this).val() === '') {
+	                alert("Please Enter South Zone BDE Target for all fields");
+	                southBdeValid = false;
+	                return false; // Break the loop
+	            }
+	        });
+
+	        if (!southBdeValid) return false;
+	        
+			return true;
+			
+		}
+	
+	</script>
+	
+	
+	
+	 <script>
+	 
+	/*  function convertNumberToWords(amount) {
+	        var words = [
+	            'Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+	            'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen', 'Twenty',
+	            'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'
+	        ];
+
+	        var scales = ['', 'Thousand', 'Lakh', 'Crore'];
+
+	        function inWords(num) {
+	            if (num === 0) return 'Zero';
+
+	            let result = '';
+	            let scaleIndex = 0;
+
+	            while (num > 0) {
+	                let n = num % 100;
+	                if (n !== 0) {
+	                    let str = '';
+	                    if (n > 20) {
+	                        str = words[Math.floor(n / 10) + 18] + (n % 10 > 0 ? '-' + words[n % 10] : '');
+	                    } else {
+	                        str = words[n];
+	                    }
+	                    result = str + (scales[scaleIndex] ? ' ' + scales[scaleIndex] : '') + ' ' + result;
+	                }
+	                scaleIndex++;
+	                num = Math.floor(num / 100);
+	            }
+
+	            return result.trim();
+	        }
+
+	        let crore = Math.floor(amount / 10000000);
+	        amount -= crore * 10000000;
+
+	        let lakh = Math.floor(amount / 100000);
+	        amount -= lakh * 100000;
+
+	        let thousand = Math.floor(amount / 1000);
+	        amount -= thousand * 1000;
+
+	        let hundreds = Math.floor(amount / 100);
+	        amount -= hundreds * 100;
+
+	        let tens = amount;
+
+	        let wordsArray = [];
+
+	        if (crore > 0) wordsArray.push(inWords(crore) + ' Crore');
+	        if (lakh > 0) wordsArray.push(inWords(lakh) + ' Lakh');
+	        if (thousand > 0) wordsArray.push(inWords(thousand) + ' Thousand');
+	        if (hundreds > 0) wordsArray.push(inWords(hundreds) + ' Hundred');
+	        if (tens > 0) wordsArray.push(inWords(tens));
+
+	        return wordsArray.join(' ');
+	    } */
+	 
+	 $(document).ready(function() {
+		    // Function to update remaining total target
+		    function updateRemainingTotalTarget() {
+		        var totalTarget = parseFloat($('#totaltarget').val()) || 0;
+		        var countryHeadTarget = parseFloat($('#countryHeadValue').val()) || 0;
+		        var zoneTargetsTotal = 0;
+		        
+		        // Sum up all zone targets
+		        $('input[name="ZoneTargetValue"]').each(function() {
+		            var zoneTargetValue = parseFloat($(this).val()) || 0;
+		            zoneTargetsTotal += zoneTargetValue;
+		        });
+
+		        // Calculate remaining total target
+		        var remainingTotalTarget = totalTarget - countryHeadTarget - zoneTargetsTotal;
+	         //   var remainingTotalTargetInWords = convertNumberToWords(remainingTotalTarget);
+
+		        // Update the display
+		        var $remainingTotalTarget = $('#remainingTotalTarget');
+		        if (remainingTotalTarget <= 0) {
+		            $remainingTotalTarget.text(' ' + remainingTotalTarget.toFixed(2)).css('color', 'green');
+		            
+		        } else {
+		            $remainingTotalTarget.text('' + remainingTotalTarget.toFixed(2)).css('color', 'red');
+		       
+		        }
+		    }
+
+		    // Event listener for totaltarget input
+		    $('#totaltarget').on('input', function() {
+		        updateRemainingTotalTarget();
+		    });
+
+		    // Event listener for countryHeadValue input
+		    $('#countryHeadValue').on('input', function() {
+		        updateRemainingTotalTarget();
+		    });
+
+		    // Event listener for dynamically added ZoneTargetValue inputs
+		    $(document).on('input', 'input[name="ZoneTargetValue"]', function() {
+		        updateRemainingTotalTarget();
+		    });
+
+		    // Initial update on page load
+		    updateRemainingTotalTarget();
+		});
+
+    </script>
+    
+    
+<!-- <script>
+        $(document).ready(function() {
+            // Function to update remaining total target
+            function updateRemainingTotalTarget() {
+                var totalTarget = parseFloat($('#totaltarget').val()) || 0;
+                var countryHeadTarget = parseFloat($('#countryHeadValue').val()) || 0;
+                var zoneTargetsTotal = 0;
+
+                // Sum up all zone targets
+                $('input[name="ZoneTargetValue"]').each(function() {
+                    var zoneTargetValue = parseFloat($(this).val()) || 0;
+                    zoneTargetsTotal += zoneTargetValue;
+                });
+
+                // Calculate remaining total target
+                var remainingTotalTarget = totalTarget - countryHeadTarget - zoneTargetsTotal;
+
+                // Update the display
+                var $remainingTotalTarget = $('#remainingTotalTarget');
+                if (remainingTotalTarget <= 0) {
+                    $remainingTotalTarget.text('Total Target: ' + remainingTotalTarget.toFixed(2)).css('color', 'green');
+
+                } else {
+                    $remainingTotalTarget.text('Total Target: ' + remainingTotalTarget.toFixed(2)).css('color', 'red');
+
+                }
+            }
+
+
+            // Event listener for totaltarget input
+            $('#totaltarget').on('input', function() {
+                updateRemainingTotalTarget();
+            });
+
+            // Event listener for countryHeadValue input
+            $('#countryHeadValue').on('input', function() {
+                updateRemainingTotalTarget();
+            });
+
+            // Event listener for dynamically added ZoneTargetValue inputs
+            $(document).on('input', 'input[name="ZoneTargetValue"]', function() {
+                updateRemainingTotalTarget();
+            });
+
+            // Initial update on page load
+            updateRemainingTotalTarget();
+        });
+        </script> -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all input elements dynamically
+    var inputs = document.querySelectorAll('input[name="ZoneTargetValue"]');
+
+    // Add event listeners to each input
+    inputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            // Extract zoneId from the input's ID
+            var zoneId = input.id.split('_')[1];
+            var currentValue = parseFloat(input.value); // Parse input value as float
+
+            // Call function to update color and span content
+            updateRemainingTargetColor(zoneId, currentValue);
+
+            // Update the associated span with the current value
+            var spanId = 'remainingTarget' + zoneId; // Assuming span ID format
+            var spanElement = document.getElementById(spanId);
+            if (spanElement) {
+                spanElement.textContent = currentValue.toFixed(2); // Example: Update span content
+            }
+        });
+    });
+});
+
+function updateRemainingTargetColor(zoneId, value) {
+    // Your function to update color based on value
+    // Example:
+    var spanId = 'remainingTarget' + zoneId;
+    var spanElement = document.getElementById(spanId);
+    if (spanElement) {
+        // Example logic to update color based on value
+        if (value === 0) {
+            spanElement.style.color = 'green';
+        } else {
+            spanElement.style.color = 'red';
+        }
+    }
+}
+
+</script>
+
+
+
+<script>
+$(document).ready(function() {
+    function updateRemainingTargets() {
+        // Initialize head target values from input fields
+        var HeadTargetEast = parseFloat($('#eastZonalHeadValue').val()) || 0;
+        var HeadTargetWest = parseFloat($('#westZonalHeadValue').val()) || 0;
+        var HeadTargetNorth = parseFloat($('#northZonalHeadValue').val()) || 0;
+        var HeadTargetSouth = parseFloat($('#southZonalHeadValue').val()) || 0;
+
+        // Loop through each ZoneTargetValue input and calculate remaining targets
+        $('[id^="ZoneTargetValue_"]').each(function() {
+            var zoneId = this.id.split('_').pop(); // Extract the zone ID
+            var ZoneValue = parseFloat($(this).val()) || 0;
+            var HeadTarget, zonePrefix, remainingTargetId;
+
+            // Determine the zone and corresponding head target
+            switch (zoneId) {
+                case '1':
+                    HeadTarget = HeadTargetNorth;
+                    zonePrefix = 'north';
+                    remainingTargetId = '#remainingTarget1';
+                    break;
+                case '2':
+                    HeadTarget = HeadTargetEast;
+                    zonePrefix = 'east';
+                    remainingTargetId = '#remainingTarget2';
+                    break;
+                case '3':
+                    HeadTarget = HeadTargetWest;
+                    zonePrefix = 'west';
+                    remainingTargetId = '#remainingTarget3';
+                    break;
+                case '4':
+                    HeadTarget = HeadTargetSouth;
+                    zonePrefix = 'south';
+                    remainingTargetId = '#remainingTarget4';
+                    break;
+                default:
+                    return;
+
+            }
+
+            // Calculate the total targets for each zone
+            var zoneTargetsTotal = 0;
+            $('input[name^="' + zonePrefix + '_bdeValue"]').each(function() {
+                var zoneTargetValue = parseFloat($(this).val()) || 0;
+                zoneTargetsTotal += zoneTargetValue;
+            });
+
+            // Calculate remaining total target for the zone
+            var remainingTotalTarget = ZoneValue - HeadTarget - zoneTargetsTotal;
+            var remainingTargetElement = $(remainingTargetId);
+
+            remainingTargetElement.text(' Zone Target: ' + remainingTotalTarget.toFixed(2));
+
+            // Change color based on remaining target value
+            if (remainingTotalTarget === 0) {
+                remainingTargetElement.css('color', 'green');
+            } else {
+                remainingTargetElement.css('color', 'red');
+            }
+        });
+    }
+
+    // Event listeners for head value inputs
+    $('#eastZonalHeadValue, #westZonalHeadValue, #northZonalHeadValue, #southZonalHeadValue').on('input', function() {
+        updateRemainingTargets();
+    });
+
+    // Event listener for dynamically added zone target inputs
+    $(document).on('input', 'input[name^="ZoneTargetValue_"]', function() {
+        updateRemainingTargets();
+    });
+
+    // Event bindings for each zone
+    $(document).on('input', 'input[name^="north_bdeValue"]', function() {
+        updateRemainingTargets();
+    });
+
+    $(document).on('input', 'input[name^="east_bdeValue"]', function() {
+        updateRemainingTargets();
+    });
+
+    $(document).on('input', 'input[name^="west_bdeValue"]', function() {
+        updateRemainingTargets();
+    });
+
+    $(document).on('input', 'input[name^="south_bdeValue"]', function() {
+        updateRemainingTargets();
+    });
+
+    // Initial update on page load
+    updateRemainingTargets();
+}); 
+</script>
+     <script>
+   $(document).ready(function(){
+       $(".active").removeClass("active");
+       $("#targetnavid").addClass("active");
+    });
+  </script>
+
+</body>
+
+</html>
